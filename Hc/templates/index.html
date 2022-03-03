@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>HC</title>
+</head>
+<body>
+ 
+    <h1>Health_Camp_Detail</h1>
+    
+    {% for row in rows_deploy %}
+    <p>CampID: 
+       <b>{{row["Health_Camp_ID"]}}</b> | 
+       {{row["Camp_Start_Date"]}} | 
+        {{ row["Camp_End_Date"]}} | 
+       {{row['Category1']}}	| 
+       {{row["Category2"]}} |
+        {{ row["Category3"]}}
+    </p>
+    {% endfor %}
+
+
+    <h1>First_Health_Camp_Attended</h1>
+    
+    {% for row in rows_status %}
+    <p>CampID: 
+       <b>{{row["Patient_ID"]}}</b> | 
+       {{row["deployID"]}} | 
+        {{ row["Donation"]}} | 
+       {{row['Health_Score']}}
+    </p>
+    {% endfor %}
+</body>
+</html>
