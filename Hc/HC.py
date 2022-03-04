@@ -16,4 +16,4 @@ def index():
     cur.execute("select * from status")
     rows_status = cur.fetchall()
     conn.close()
-    return render_template('index.html', rows_deploy=rows_deploy, rows_status=rows_status)
+    return render_template('data.html', rows_deploy=rows_deploy, rows_status=rows_status)

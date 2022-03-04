@@ -24,16 +24,24 @@ with open('/home/codio/workspace/Hc/Health_Care_Analytics/Health_Camp_Detail.csv
     next(reader) # skip the header line
     for row in reader:
         print(row)
+        # check if the row starts with empty string (avoid reading empty lines after the data)
+        if row[0]:
+            try:
 
-        Health_Camp_ID = int(row[0])
-        Camp_Start_Date = row[1]
-        Camp_End_Date = row[2]
-        Category1 = row[3]
-        Category2 = row[4]
-        Category3 = int(row[5])
+              Health_Camp_ID = int(row[0])
+              Camp_Start_Date = row[1]
+              Camp_End_Date = row[2]
+              Category1 = row[3]
+              Category2 = row[4]
+              Category3 = int(row[5])
 
-        cur.execute('INSERT INTO deployments VALUES (?,?,?,?,?,?)', (Health_Camp_ID, Camp_Start_Date, Camp_End_Date, Category1, Category2, Category3))
-        conn.commit()
+              cur.execute('INSERT INTO deployments VALUES (?,?,?,?,?,?)', (Health_Camp_ID, Camp_Start_Date, Camp_End_Date, Category1, Category2, Category3))
+              conn.commit()
+            except Exception: # if there are missing values, go to the next row
+              pass
+        else: # stop reading when reaching empty lines.
+            break
+
 print("data parsed successfully");
 
 
