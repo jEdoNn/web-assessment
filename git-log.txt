@@ -1,0 +1,9 @@
+* 40fb621 : update
+* 4fbb91b : update
+* 6af5d55 : update
+* 5b30f57 : update
+* 2579c31 : make it better
+* 86bf5ec : fixed version
+* 0dd3dda : Add Heroku deployment files
+* f1f73c9 : new version
+* 9bf8064 : first commit
